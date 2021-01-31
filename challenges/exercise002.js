@@ -1,15 +1,15 @@
 function getFillings(sandwich) {
   if (sandwich === undefined) throw new Error("ingredients is required");
   // Your code here!
- 
-  
-    return sandwich.fillings;
+
+
+  return sandwich.fillings;
 }
 
 function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
   // Your code here!
-  if (person.city == "Manchester"){
+  if (person.city == "Manchester") {
     return true;
   }
   return false;
@@ -18,17 +18,17 @@ function isFromManchester(person) {
 function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
   // Your code here
-  
-  return Math.ceil(people/40);
+
+  return Math.ceil(people / 40);
 }
 
 // STUDY THIS
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
-  var count = arr.reduce(function(n, val) {
+  var count = arr.reduce(function (n, val) {
     return n + (val === "sheep");
-}, 0);
+  }, 0);
   return count;
 }
 
@@ -41,9 +41,9 @@ function hasMPostCode(person) {
 
   if (post.charAt(0) == "M" && city != "Manchester") {
     ans = false;
-  }else if (post.charAt(0) == "M") {
+  } else if (post.charAt(0) == "M") {
     ans = true;
-  }else if (post.charAt(0) != "M") {
+  } else if (post.charAt(0) != "M") {
     ans = false;
   }
   return ans;
