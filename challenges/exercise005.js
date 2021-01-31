@@ -4,22 +4,15 @@ const findNextNumber = (nums, n) => {
   // Your code here!
   var nextNumb;
   var idx = nums.indexOf(n);
-  console.log("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT" + n + "" + idx);
-  for (var i = 0; i <= nums.length; i++) {
-    if (nums[idx + 1] == -1) {
 
+  for (var i = 0; i <= nums.length; i++) {
+    if (idx == -1) {
       nextNumb = null;
-    } else if (nums[idx] == nums.length) {
+    } else if ((idx + 1) == nums.length) {
       nextNumb = null;
     } else {
-      nextNumb = [idx + 1]
+      nextNumb = nums[idx + 1];
     }
-    //const functionToFilterNumbers = function(nums){
-    //  return nums[i+1];
-
-
-    // last position null
-    // not in array = null; 
 
   }
   return nextNumb;
@@ -46,9 +39,12 @@ const reverseNumber = n => {
   return parseFloat(n.toString().split('').reverse().join('')) * Math.sign(n);
 };
 
+
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
   // Your code here!
+
+
 
 };
 
@@ -56,26 +52,45 @@ const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
   //arr.reverse();
-  var start = arr[0];
-  var end = arr[arr.length];
-  var newA = arr;
-  newA[0] = end;
-  newA[-1] = start;
+  var newA = [];
+  for (i = 0; i < arr.length; i++) {
+    newA[i] = arr[i];
+    var start = arr[0];
+    var end = arr[arr.length - 1];
+
+    newA.splice(0, 1, start);
+    newA.splice(length - 1, 1, end);
+  }
   return newA;
-
-
 };
 
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   // Your code here!
+  for (key in haystack[i]) {
+    if (haystack[i][key].indexOf(searchTerm) != -1)
+      return true;
+  }
+  return false;
+
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+  var words = str.replace(/[.]/g, '').split(/\s/);
+  var freqMap = {};
+  words.forEach(function (w) {
+    if (!freqMap[w]) {
+      freqMap[w] = 0;
+    }
+    freqMap[w] += 1;
+  });
+
+  return freqMap;
 };
+
 
 module.exports = {
   findNextNumber,
