@@ -26,7 +26,7 @@ function getBusNumbers(people) {
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
-  var count = arr.reduce(function (n, val) {
+  let count = arr.reduce(function (n, val) {
     return n + (val === "sheep");
   }, 0);
   return count;
@@ -35,9 +35,9 @@ function countSheep(arr) {
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
   // Your code here!
-  var ans = true;
-  var post = person.address.postCode;
-  var city = person.address.city;
+  let ans = true;
+  let post = person.address.postCode;
+  let city = person.address.city;
 
   if (post.charAt(0) == "M" && city != "Manchester") {
     ans = false;

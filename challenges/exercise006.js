@@ -6,24 +6,59 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  sum=0;
+  for (let i = 0; i < arr.length; i++){
+    if(arr[i]%3==0 || arr[i]%5==0){
+      sum = sum+arr[i];
+
+    }
+}
+return sum;
+
 };
 
 /**
- * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
+ * This function will receive a string of characters and should return true/false depending on 
+ * whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
  * @param {String} str
  * @returns {Boolean}
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+ 
+  if ((str.includes("C")) || (str.includes("G")) ||(str.includes("T"))||(str.includes("A"))){
+
+  return true;
+  
+  }
+  return false;
 };
 
+
+
+
+
 /**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
+ * This function will receive a valid DNA string (see above) and should return a string of the 
+ * complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of 
+ * "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
  * @returns {String}
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+ 
+  for (l=0; l<str.length; l++){
+
+   if (str[l] != "A" && str[l] != "C" && str[l] != "T" && str[l]!="G"){
+   return "invalid string"
+  }
+  else ((str.replace(/"A"/g,"T")) && (str.replace(/"T"/g,"A")) &&(str.replace(/"C"/g,"G")) && (str.replace(/"G"/g,"C")))
+  
+}
+  console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"+str);
+  return str;
+
 };
 
 /**

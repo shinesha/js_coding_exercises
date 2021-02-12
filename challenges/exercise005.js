@@ -2,10 +2,10 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
   // Your code here!
-  var nextNumb;
-  var idx = nums.indexOf(n);
+  let nextNumb;
+  let idx = nums.indexOf(n);
 
-  for (var i = 0; i <= nums.length; i++) {
+  for (let i = 0; i <= nums.length; i++) {
     if (idx == -1) {
       nextNumb = null;
     } else if ((idx + 1) == nums.length) {
@@ -23,9 +23,9 @@ const findNextNumber = (nums, n) => {
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
-  var prop0 = (str.match(/0/g) || []).length;
-  var prop1 = (str.match(/1/g) || []).length;
-  var obj = {
+  let prop0 = (str.match(/0/g) || []).length;
+  let prop1 = (str.match(/1/g) || []).length;
+  let obj = {
     0: prop0,
     1: prop1
   }
@@ -52,11 +52,11 @@ const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
   //arr.reverse();
-  var newA = [];
+  let newA = [];
   for (i = 0; i < arr.length; i++) {
     newA[i] = arr[i];
-    var start = arr[0];
-    var end = arr[arr.length - 1];
+    let start = arr[0];
+    let end = arr[arr.length - 1];
 
     newA.splice(0, 1, start);
     newA.splice(length - 1, 1, end);
@@ -79,8 +79,8 @@ const findNeedle = (haystack, searchTerm) => {
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
-  var words = str.replace(/[.]/g, '').split(/\s/);
-  var freqMap = {};
+  words = str.replace(/[.]/g, '').split(/\s/);
+  freqMap = {};
   words.forEach(function (w) {
     if (!freqMap[w]) {
       freqMap[w] = 0;

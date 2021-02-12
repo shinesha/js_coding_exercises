@@ -1,8 +1,8 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
   // Your code he
-  var arra=[];
-  for (var i = 0; i < nums.length; i++){
+  let arra=[];
+  for (let i = 0; i < nums.length; i++){
       arra.push(nums[i]**2)
   }
   return arra;
@@ -12,9 +12,9 @@ function getSquares(nums) {
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Your code here!
-  var out = "";
+  let out = "";
   words.forEach(function (el, idx) {
-      var add = el.toLowerCase();
+      let add = el.toLowerCase();
       out += (idx === 0 ? add : add[0].toUpperCase() + add.slice(1));
   });
   return out;
@@ -25,7 +25,7 @@ function camelCaseWords(words) {
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   // Your code here!
-  var sum = 0;
+  let sum = 0;
   for (const obj of people) {
       sum = sum + obj.subjects.length;
     }
@@ -49,7 +49,7 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   // Your code here!
-  var last = arr1.concat(arr2);
+  let last = arr1.concat(arr2);
   
   let unique=[];
   last.forEach(element => {

@@ -39,8 +39,8 @@ function getCities(users) {
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
-  var result =[];
-  for(var i = 0; i < nums.length ; i++){
+  let result =[];
+  for(let i = 0; i < nums.length ; i++){
     result[i] =  Math.round((Math.sqrt(nums[i]))*100.0)/100.0;
   }
   return result;
@@ -52,7 +52,7 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
   // Your code here
   //if (sentences.includes(str)){
-    var sentences1 = sentences.toString();
+    let sentences1 = sentences.toString();
     const sentenceArray = sentences1.replace(/([,])\s*(?=[A-Z])/g, "$1|").split("|")
 
     // Filter our array by checking if each sentence includes the word, then immedietly returns it
@@ -65,12 +65,12 @@ function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   // Your code here
   
-  var arr = [];
+  let arr = [];
   // This loop is for outer array
-  for (var i = 0, l1 = triangles.length; i < l1; i++) {
+  for (let i = 0, l1 = triangles.length; i < l1; i++) {
 
   // This loop is for inner-arrays
-    for (var j = 0, l2 = triangles[i].length; j < l2; j++) {
+    for (let j = 0, l2 = triangles[i].length; j < l2; j++) {
 
       arr.push(Math.max(triangles[i]));
       console.log(arr);
