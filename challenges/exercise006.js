@@ -6,14 +6,14 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  sum=0;
-  for (let i = 0; i < arr.length; i++){
-    if(arr[i]%3==0 || arr[i]%5==0){
-      sum = sum+arr[i];
+  sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
+      sum = sum + arr[i];
 
     }
-}
-return sum;
+  }
+  return sum;
 
 };
 
@@ -25,17 +25,14 @@ return sum;
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
- 
-  if ((str.includes("C")) || (str.includes("G")) ||(str.includes("T"))||(str.includes("A"))){
 
-  return true;
-  
+  if ((str.includes("C")) || (str.includes("G")) || (str.includes("T")) || (str.includes("A"))) {
+
+    return true;
+
   }
   return false;
 };
-
-
-
 
 
 /**
@@ -45,21 +42,28 @@ const isValidDNA = str => {
  * @param {String} str
  * @returns {String}
  */
+
+ // Come back to this 
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
- 
-  for (l=0; l<str.length; l++){
 
-   if (str[l] != "A" && str[l] != "C" && str[l] != "T" && str[l]!="G"){
-   return "invalid string"
+  for (l = 0; l < str.length; l++) {
+
+    if (str[l] != "A" && str[l] != "C" && str[l] != "T" && str[l] != "G") {
+      return "invalid string"
+    }
+    else
+
+      ((str.replace(/A/g, "T")) && (str.replace(/T/g, "A")) && (str.replace(/C/g, "G")) && (str.replace(/G/g, "C")))
+
   }
-  else ((str.replace(/"A"/g,"T")) && (str.replace(/"T"/g,"A")) &&(str.replace(/"C"/g,"G")) && (str.replace(/"G"/g,"C")))
-  
-}
-  console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"+str);
+  console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY" + str);
   return str;
 
 };
+
+
+
 
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
@@ -68,10 +72,17 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  
+  for(let i = 2, s = Math.sqrt(n); i <= s; i++)
+      if(n % i === 0) return false; 
+
+      return true;
 };
 
 /**
- * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
+ * This function should receive a number and return an array of n arrays, each filled with n items. 
+ * The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" 
+ * the resulting matrix should be:
  * [
  *   ["foo", "foo", "foo"],
  *   ["foo", "foo", "foo"],
@@ -84,6 +95,17 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+
+  let arry = [];
+
+  for (let l = 0; l<n; l++){
+    arry[l]= [];
+    for (let j = 0; j<n; j++){
+      arry[l][j].push(fill);
+    }
+    
+  }
+  return arry;
 };
 
 /**
