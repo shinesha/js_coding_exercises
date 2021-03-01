@@ -1,11 +1,11 @@
 //const { TestScheduler } = require("jest");
-const { getBusNumbers } = require("../challenges/exercise002");
 const {
     sumMultiples,
     isValidDNA,
     getComplementaryDNA,
     isItPrime, 
-    createMatrix} = require("../challenges/exercise006")
+    createMatrix,
+    areWeCovered} = require("../challenges/exercise006")
 
 describe("sumMultiples", () => {
 
@@ -66,21 +66,26 @@ describe("sumMultiples", () => {
             expect(result).toBe(expected)
         });
         test("returns complementary base pair if valid DNA string entered, T always pairs with A, and C always pairs with G", () => {
-            const result = isValidDNA("TACG");
+            const result = getComplementaryDNA("TAGC");
             const expected = "ATGC";
             expect(result).toBe(expected)
         });
         test("returns complementary base pair if valid DNA string entered, T always pairs with A, and C always pairs with G", () => {
-            const result = isValidDNA("GCAT");
+            const result = getComplementaryDNA("GCAT");
+      
             const expected = "CGTA";
             expect(result).toBe(expected)
         });
         test("returns complementary base pair if valid DNA string entered, T always pairs with A, and C always pairs with G", () => {
-            const result = isValidDNA("gCAT");
+            const result = getComplementaryDNA("gCAT");
+       
             const expected = "invalid string";
             expect(result).toBe(expected)
         });
     });
+
+
+
 
 
     describe("isItPrime", () => {
@@ -109,18 +114,38 @@ describe("sumMultiples", () => {
 
     describe("createMatrix", () => {
         test("returns n * n array filled with whatever is introduced via parameter called 'fill'", () => {
-            expect(createMatrix(1, "yo")).toEqual(["yo"]);
+            expect(createMatrix(1, "yo")).toEqual([["yo"]]);
         });
 
         test("returns n * n array filled with whatever is introduced via parameter called 'fill'", () => {
-            expect(createMatrix(2, 91).toEqual([[91, 91], [91, 91]]));
+            expect(createMatrix(1, 91).toEqual([[91, 91], [91, 91]]));
 
-            expect(createMatrix([3, "gun"])).toEqual([["gun", "gun", "gun"], ["gun", "gun", "gun"], ["gun", "gun", "gun"]]);
-
-           
+            expect(createMatrix([3, "gun"])).toEqual([["gun", "gun", "gun"], ["gun", "gun", "gun"], ["gun", "gun", "gun"]]);  
         });
 
     });
+
+
+    describe("areWecovered", () => {
+        test("returns true if 3 more people are working on the same day or returns false otherwise", () =>{
+            staff =   [
+                { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+                { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]},
+                { name: "Ellie", rota: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]},
+                { name: "Heather", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]},
+                { name: "James", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"]},
+             ];
+
+          expect(createMatrix(staff, "Friday")).toEqual(false);
+    
+          expect(createMatrix(staff, "Monday")).toEqual(false);
+    
+          expect(createMatrix(staff, "Saturday")).toEqual(true);
+        
+        });
+
+   
+});
 
 });
 

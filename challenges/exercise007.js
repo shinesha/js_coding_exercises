@@ -4,6 +4,16 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+
+  output = [],
+  sNumber = n.toString();
+    
+  for (var i = 0; i<sNumber.length; i+=1) {
+  output.push(+sNumber.charAt(i));
+
+  }
+  for (var i = 0, sum = 0; i < output.length; sum += output[i++]);
+return sum;
 };
 
 /**
@@ -17,10 +27,21 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  
+  
+
+  var str = Array();
+
+  for(var i=start; i<end; i++){
+  str[i]= i+step;
+}
+
+  return str;
 };
 
 /**
- * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
+ * This function takes an array of user objects and their usage in minutes of various applications. The format of the 
+ * data should be as follows:
  * [
  *  {
  *    username: "beth_1234",
